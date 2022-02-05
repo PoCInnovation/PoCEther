@@ -19,8 +19,8 @@
  */
 
 require('dotenv').config()
-var HDWalletProvider = require("truffle-hdwallet-provider");
-var mnemonic = process.env["MNEMONIC"];
+var PrivateKeyProvider = require("truffle-privatekey-provider");
+var privateKey = process.env["PRIVATE_KEY"];
 var tokenKey = process.env["ENDPOINT_KEY"];
 var ganacheHost = process.env["GANACHE_HOST"];
 var ganachePort = process.env["GANACHE_PORT"];
@@ -60,8 +60,7 @@ module.exports = {
     // Useful for deploying to a public network.
     // NB: It's important to wrap the provider as a function.
      rinkeby: {
-      host: "localhost",
-      provider: () => new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/` + tokenKey),
+      provider: () => new PrivateKeyProvider(privateKey, "https://rinkeby.infura.io/v3/" + tokenKey),
       network_id: 4,
       gas : 6700000,
       gasPrice : 10000000000

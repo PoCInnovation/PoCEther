@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "start": "truffle test && truffle migrate --network=rinkeby",
+    "start": "truffle migrate --network rinkeby",
     "dev": "truffle test && truffle migrate",
     "client": "cd client && yarn start"
   },
@@ -24,6 +24,6 @@
   "dependencies": {
     "@openzeppelin/contracts": "^3.3.0",
     "dotenv": "^10.0.0",
-    "truffle-hdwallet-provider": "^1.0.17"
+    "truffle-privatekey-provider": "^1.5.0"
   }
 }
