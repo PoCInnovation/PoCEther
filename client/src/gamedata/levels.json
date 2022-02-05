@@ -1,0 +1,117 @@
+[
+    {
+        "type": "Easy",
+        "levels": [
+        {
+            "name": "BecomeTheNewOwner",
+            "description": "The goal of this challenge is to become the owner of the contract.",
+            "code": [
+                "BecomeTheOwner"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "Bank",
+            "description": "The goal of this challenge is to empty the contract's balance.",
+            "code": [
+                "Bank"
+            ],
+            "value": "1"
+        },
+        {
+            "name": "BecomeTheOwner",
+            "description": "The goal of this challenge is to become the owner of the contract.",
+            "code": [
+                "BecomeTheOwner"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "GuessMyPassword",
+            "description": "The goal of this challenge is to find the good password.",
+            "code": [
+                "GuessMyPassword"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "GuessMyRandomPassword",
+            "description": "The goal of this challenge is to find the good password.",
+            "code": [
+                "GuessMyRandomPassword"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "GuessMySecretPassword",
+            "description": "The goal of this challenge is to find the good password.",
+            "code": [
+                "GuessMySecretPassword"
+            ],
+            "value": "0"
+        }
+    ]},
+    {
+        "type": "Medium",
+        "levels": [
+        {
+            "name": "Vault",
+            "description": "The goal of this challenge is to open the bank.",
+            "code": [
+                "Vaut"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "AuctionBug",
+            "description": "The goal of this challenge is to empty the balance of the contract.",
+            "code": [
+                "AuctionBug"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "IDoNothing",
+            "description": "The goal of this challenge is to fill the balance of the contract.",
+            "code": [
+                "IDoNothing"
+            ],
+            "value": "0"
+        }
+    ]},
+    {
+        "type": "Hard",
+        "levels": [
+        {
+            "name": "BadAss",
+            "description": "The goal of this challenge is to claim the ownership. When you submit the instance back to the level, the level is going to reclaim owernship. You will beat the level if you can avoid such a self proclamation.",
+            "code": [
+                "BadAss"
+            ],
+            "value": "1"
+        },
+        {
+            "name": "OpCodes",
+            "description": "This is a gambling contract where you can MULTIPLY YOUR BET BY 100X, quite amazing right? Of course there is a trick. To validate this challenge, you must empty the Wallet contract by taking the whole etherum from it.",
+            "code": [
+                "Justin",
+                "GuessTheValue",
+                "Modifier",
+                "Wallet"
+            ],
+            "value": "1"
+        },
+        {
+            "name": "Ultimate",
+            "description": "The goal of this challenge is to claim the fourth sub-challenges",
+            "code": [
+                "Ultimate",
+                "Subway",
+                "House",
+                "ItSDoneIn2Sec",
+                "Grumpy"
+            ],
+            "value": "2"
+        }
+    ]}
+]

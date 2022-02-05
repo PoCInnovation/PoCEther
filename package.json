@@ -1,0 +1,29 @@
+{
+  "name": "blockchainchallengesplatform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "truffle test && truffle migrate --network=rinkeby",
+    "dev": "truffle test && truffle migrate",
+    "client": "cd client && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lolboysg/BlockchainChallengesPlatform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lolboysg/BlockchainChallengesPlatform/issues"
+  },
+  "homepage": "https://github.com/lolboysg/BlockchainChallengesPlatform#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^3.3.0",
+    "dotenv": "^10.0.0",
+    "truffle-hdwallet-provider": "^1.0.17"
+  }
+}
