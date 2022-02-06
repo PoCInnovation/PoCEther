@@ -18,6 +18,8 @@ import Modifier from './Modifier.json';
 import GuessTheValue from './GuessTheValue.json';
 import Wallet from './Wallet.json';
 
+import BadAssFactory from './BadAssFactory.json';
+
 const mainContracts = {
   Bank,
   GuessMySecretPassword,
@@ -38,6 +40,7 @@ const mainContracts = {
   Modifier,
   GuessTheValue,
   Wallet,
+  BadAssFactory,
 };
 
 export default mainContracts;

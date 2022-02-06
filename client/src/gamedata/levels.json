@@ -6,6 +6,14 @@
             "name": "BecomeTheNewOwner",
             "description": "The goal of this challenge is to become the owner of the contract.",
             "code": [
+                "BecomeTheNewOwner"
+            ],
+            "value": "0"
+        },
+        {
+            "name": "BecomeTheOwner",
+            "description": "The goal of this challenge is to become the owner of the contract.",
+            "code": [
                 "BecomeTheOwner"
             ],
             "value": "0"
@@ -17,14 +25,6 @@
                 "Bank"
             ],
             "value": "1"
-        },
-        {
-            "name": "BecomeTheOwner",
-            "description": "The goal of this challenge is to become the owner of the contract.",
-            "code": [
-                "BecomeTheOwner"
-            ],
-            "value": "0"
         },
         {
             "name": "GuessMyPassword",
@@ -58,7 +58,7 @@
             "name": "Vault",
             "description": "The goal of this challenge is to open the bank.",
             "code": [
-                "Vaut"
+                "Vault"
             ],
             "value": "0"
         },
@@ -86,7 +86,8 @@
             "name": "BadAss",
             "description": "The goal of this challenge is to claim the ownership. When you submit the instance back to the level, the level is going to reclaim owernship. You will beat the level if you can avoid such a self proclamation.",
             "code": [
-                "BadAss"
+                "BadAss",
+                "BadAssFactory"
             ],
             "value": "1"
         },
