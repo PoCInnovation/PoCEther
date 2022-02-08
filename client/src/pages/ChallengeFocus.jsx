@@ -43,6 +43,7 @@ const ChallengeFocus = ({ web3 }) => {
             </SyntaxHighlighter>
           </Box>
         ))}
+        <Text textColor="white">{currentLevel.hiddenMsg}</Text>
       </Box>
       <Footer />
     </Box>

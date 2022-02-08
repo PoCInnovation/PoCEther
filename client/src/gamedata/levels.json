@@ -8,7 +8,8 @@
             "code": [
                 "BecomeTheNewOwner"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         },
         {
             "name": "BecomeTheOwner",
@@ -16,7 +17,8 @@
             "code": [
                 "BecomeTheOwner"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         },
         {
             "name": "Bank",
@@ -24,7 +26,8 @@
             "code": [
                 "Bank"
             ],
-            "value": "1"
+            "value": "1",
+            "hiddenMsg": ""
         },
         {
             "name": "GuessMyPassword",
@@ -32,7 +35,8 @@
             "code": [
                 "GuessMyPassword"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         },
         {
             "name": "GuessMyRandomPassword",
@@ -40,7 +44,8 @@
             "code": [
                 "GuessMyRandomPassword"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         },
         {
             "name": "GuessMySecretPassword",
@@ -48,7 +53,8 @@
             "code": [
                 "GuessMySecretPassword"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": "memo: password = 4269"
         }
     ]},
     {
@@ -60,7 +66,8 @@
             "code": [
                 "Vault"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": "https://youtu.be/dQw4w9WgXcQ"
         },
         {
             "name": "AuctionBug",
@@ -68,7 +75,8 @@
             "code": [
                 "AuctionBug"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         },
         {
             "name": "IDoNothing",
@@ -76,7 +84,8 @@
             "code": [
                 "IDoNothing"
             ],
-            "value": "0"
+            "value": "0",
+            "hiddenMsg": ""
         }
     ]},
     {
@@ -89,7 +98,8 @@
                 "BadAss",
                 "BadAssFactory"
             ],
-            "value": "1"
+            "value": "1",
+            "hiddenMsg": ""
         },
         {
             "name": "OpCodes",
@@ -100,7 +110,8 @@
                 "Modifier",
                 "Wallet"
             ],
-            "value": "1"
+            "value": "1",
+            "hiddenMsg": ""
         },
         {
             "name": "Ultimate",
@@ -112,7 +123,8 @@
                 "ItSDoneIn2Sec",
                 "Grumpy"
             ],
-            "value": "2"
+            "value": "2",
+            "hiddenMsg": ""
         }
     ]}
 ]
