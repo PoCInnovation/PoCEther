@@ -2,7 +2,7 @@
 
 pragma solidity ^0.6.0;
 
-interface Bank {
+interface BankSecurity {
 	function isGoodPassword(uint) external returns (bool);
 }
 
@@ -15,7 +15,7 @@ contract Vault {
 	}
 
 	function unlockVault(uint _password) public {
-		Bank bank = Bank(msg.sender);
+		BankSecurity bank = BankSecurity(msg.sender);
 
 		if (!bank.isGoodPassword(_password)) {
 			password = _password;

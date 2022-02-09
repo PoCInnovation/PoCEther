@@ -54,7 +54,7 @@
                 "GuessMySecretPassword"
             ],
             "value": "0",
-            "hiddenMsg": "memo: password = 4269"
+            "hiddenMsg": "console.log(\"password\", 4269)"
         }
     ]},
     {
