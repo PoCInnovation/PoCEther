@@ -3,19 +3,19 @@
         "type": "Easy",
         "levels": [
         {
-            "name": "BecomeTheNewOwner",
+            "name": "BecomeTheOwner",
             "description": "The goal of this challenge is to become the owner of the contract.",
             "code": [
-                "BecomeTheNewOwner"
+                "BecomeTheOwner"
             ],
             "value": "0",
             "hiddenMsg": ""
         },
         {
-            "name": "BecomeTheOwner",
+            "name": "BecomeTheNewOwner",
             "description": "The goal of this challenge is to become the owner of the contract.",
             "code": [
-                "BecomeTheOwner"
+                "BecomeTheNewOwner"
             ],
             "value": "0",
             "hiddenMsg": ""
