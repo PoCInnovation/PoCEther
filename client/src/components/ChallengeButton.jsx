@@ -9,7 +9,7 @@ const ChallengeButton = ({ web3, level }) => {
   const [instance, setInstance] = useState(JSON.parse(localStorage.getItem(level.name) || null));
 
   useEffect(() => {
-    if (instance) console.log(`${level.name}'s instance is: ${instance.address}`);
+    if (instance) console.log(`${level.asciiArt} ${level.name}'s instance is: ${instance.address}`);
   }, [instance?.address]);
 
   const handleValidate = async () => {
