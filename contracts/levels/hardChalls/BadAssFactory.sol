@@ -11,7 +11,7 @@ contract BadAssFactory is Level {
 
   function createInstance(address _player) override public payable returns (address) {
     _player;
-    return address((new BadAss).value(1 ether)(temp, payable(address(this))));
+    return address((new BadAss).value(0.01 ether)(temp, payable(address(this))));
   }
 
   function validateInstance(address payable _instance, address) override public returns (bool) {

@@ -9,13 +9,13 @@ contract BankFactory is Level {
 
   function createInstance(address _player) override public payable returns (address) {
     _player;
-    return address((new Bank).value(1 ether)());
+    return address((new Bank).value(0.01 ether)());
   }
 
   function validateInstance(address payable _instance, address) override public returns (bool) {
     // _player;
     Bank instance = Bank(_instance);
-    if (address(instance).balance < 1 ether)
+    if (address(instance).balance < 0.01 ether)
       return true;
     else
       return false;

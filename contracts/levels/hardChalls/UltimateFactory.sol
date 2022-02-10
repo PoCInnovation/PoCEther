@@ -9,7 +9,7 @@ contract UltimateFactory is Level {
 
   function createInstance(address _player) override public payable returns (address) {
     _player;
-    return address((new Ultimate).value(1 ether)());
+    return address((new Ultimate).value(0.01 ether)());
   }
 
   function validateInstance(address payable _instance, address) override public returns (bool) {

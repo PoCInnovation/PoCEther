@@ -17,8 +17,8 @@ contract Ultimate {
 
     constructor() public payable {
         owner = msg.sender;
-        subwayContract = (new Subway).value(1 ether)();
-        houseContract = (new House)(0x53d560affeeaf017bf120737c84cae3735e76d2108ce3cb65997cec3eddd36ce, 1 ether);
+        subwayContract = (new Subway).value(0.01 ether)();
+        houseContract = (new House)(0x53d560affeeaf017bf120737c84cae3735e76d2108ce3cb65997cec3eddd36ce, 0.01 ether);
         easyContract = (new ItSDoneIn2Sec)();
         grumpyContract = (new Grumpy)();
     }
