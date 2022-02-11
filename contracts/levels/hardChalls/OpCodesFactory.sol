@@ -9,7 +9,7 @@ contract OpCodesFactory is Level {
 
   function createInstance(address _player) override public payable returns (address) {
     _player;
-    return address((new Justin).value(1 ether)());
+    return address((new Justin).value(msg.value)());
   }
 
   function validateInstance(address payable _instance, address) override public returns (bool) {
