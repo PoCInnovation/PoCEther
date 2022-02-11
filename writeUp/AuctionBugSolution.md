@@ -4,7 +4,7 @@
 
 To validate this challenge, the user needs to become the contract's owner and call the `withdrawPrice()` function.
 
-To become the owner, he needs to send at least `0.001 ether` to the contract.
+To become the owner, he needs to send at least `0.01 ether` to the contract.
 For that, he needs to use the `send` method with the contract's address.
 
 ```sol
