@@ -1,4 +1,4 @@
-# Pool-2022-Blockchain
+# PoCEther
 
 A front-end to use cyber security blockchain challenges.
 
