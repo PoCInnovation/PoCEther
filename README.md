@@ -58,6 +58,7 @@ To be able to deploy a new challenge for the app you are going to need to do a f
 + [Infura](https://infura.io/)
 + [Truffle](https://trufflesuite.com/)
 + [Web3](https://web3js.readthedocs.io)
++ [Ethernaut](https://github.com/OpenZeppelin/ethernaut)
 
 ## Our PoC team :ok_hand:
 
