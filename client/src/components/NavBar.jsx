@@ -22,6 +22,11 @@ const NavBar = () => (
               Challenges
             </Text>
           </Link>
+          <Link to="/stats">
+            <Text textColor="hsla(0,0%,100%,.5)" _hover={{ textColor: '#A0AEC0' }}>
+              Stats
+            </Text>
+          </Link>
           <Link to="/help">
             <Text textColor="hsla(0,0%,100%,.5)" _hover={{ textColor: '#A0AEC0' }}>
               Help

@@ -13,10 +13,12 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import mainContracts from 'contracts/mainContracts';
+import { motion } from 'framer-motion';
 
 const ChallengeFocus = ({ web3 }) => {
   let currentLevel;
   const { name } = useParams();
+  const MotionBox = motion(Box);
 
   levelsData.forEach((levels) =>
     levels.levels.forEach((level) => {
@@ -27,12 +29,18 @@ const ChallengeFocus = ({ web3 }) => {
   return (
     <Box>
       <NavBar />
-      <Box align="center" mt="32px">
+      <MotionBox
+        initial={{ opacity: 0 }}
+        transition={{ duration: 1 }}
+        animate={{ opacity: 1 }}
+        align="center"
+        mt="32px"
+      >
         <Box>
           <Text fontSize="24px" fontWeight="700">
             {currentLevel.name}
           </Text>
-          <Divider w="60%" />
+          <Divider w="60%" zIndex={0} />
           <ChallengeButton web3={web3} level={currentLevel} />
           <Text mb="16px">{currentLevel.description}</Text>
         </Box>
@@ -44,7 +52,7 @@ const ChallengeFocus = ({ web3 }) => {
           </Box>
         ))}
         <Text textColor="white">{currentLevel.hiddenMsg}</Text>
-      </Box>
+      </MotionBox>
       <Footer />
     </Box>
   );
