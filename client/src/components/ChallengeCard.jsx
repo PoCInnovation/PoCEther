@@ -1,24 +1,33 @@
 import { useHistory } from 'react-router-dom';
 
-import { Text, VStack } from '@chakra-ui/react';
+import { HStack, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import ChallengeBadge from './ChallengeBadge';
 
 const ChallengeCard = ({ level }) => {
   const history = useHistory();
+  const MotionHStack = motion(HStack);
 
   return (
-    <VStack
+    <MotionHStack
+      initial={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+      animate={{ opacity: 1 }}
       align="center"
-      spacing="32px"
+      bg="black"
       px="32px"
       py="24px"
-      bg="black"
       cursor="pointer"
+      borderRadius="15px"
       onClick={() => {
         history.push(`/level/${level.name}`);
       }}
     >
-      <Text color="white">{level.name}</Text>
-    </VStack>
+      <Text color="white" fontWeight="700" w="70%" textAlign="center">
+        {level.name}
+      </Text>
+      <ChallengeBadge level={level} maxW="30%" />
+    </MotionHStack>
   );
 };
 
