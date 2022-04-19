@@ -30,7 +30,7 @@ const ChallengeButton = ({ web3, level }) => {
         localStorage.setItem(level.name, JSON.stringify(data));
         setInstance(data);
         console.log(`${level.name}'s instance has been validated`);
-        console.log(`The code is :${level.chall}`);
+        console.log(`The flag is: ${level.flag}`);
       }
     }
   };
