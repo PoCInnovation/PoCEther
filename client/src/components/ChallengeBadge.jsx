@@ -5,12 +5,12 @@ const ChallengeBadge = ({ level }) => {
 
   if (instance && instance.completed)
     return (
-      <Badge variant="subtle" colorScheme="green">
+      <Badge variant="subtle" colorScheme="green" size="medium">
         Validated
       </Badge>
     );
   return (
-    <Badge variant="subtle" colorScheme="red">
+    <Badge variant="subtle" colorScheme="red" size="medium">
       Not validated
     </Badge>
   );

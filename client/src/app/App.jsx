@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { Box } from '@chakra-ui/react';
 
 import { initWeb3 } from 'scripts/BlockchainUtils';
+import { BrowserRouter } from 'react-router-dom';
 import Routes from './Routes';
 
 const App = () => {
@@ -14,7 +15,9 @@ const App = () => {
 
   return (
     <Box>
-      <Routes web3={web3} />
+      <BrowserRouter>
+        <Routes web3={web3} />
+      </BrowserRouter>
     </Box>
   );
 };

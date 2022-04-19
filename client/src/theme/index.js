@@ -8,6 +8,7 @@ import radius from './foundations/borderRadius';
 import shadows from './foundations/shadows';
 
 import Progress from './components/progress';
+import Badge from './components/badge';
 
 const breakpoints = createBreakpoints({
   xs: '320px',
@@ -16,6 +17,9 @@ const breakpoints = createBreakpoints({
   lg: '1024px',
   xl: '1280px',
   '2xl': '1440px',
+  '3xl': '1680px',
+  '4xl': '1920px',
+  '5xl': '2560px',
 });
 
 const overrides = {
@@ -26,6 +30,7 @@ const overrides = {
   breakpoints,
   components: {
     Progress,
+    Badge,
   },
 };
 
