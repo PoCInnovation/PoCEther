@@ -36,7 +36,7 @@ const ChallengeFocus = ({ web3 }) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           align="center"
-          mt="64px"
+          my="64px"
           w="75%"
           bg="#212121"
           p="32px"
