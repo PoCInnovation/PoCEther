@@ -77,15 +77,15 @@ const Help = () => {
               <UnorderedList>
                 <ListItem color="white" ml="16px">
                   To play the game, you will need test ether. The easiest way to get some testnet ether is via{' '}
-                  <Link to="https://faucet.egorfine.com/" color="#777777">
+                  <Link href="https://faucet.egorfine.com/" color="#777777">
                     this
                   </Link>
                   ,{' '}
-                  <Link to="https://faucet.dimensions.network/" color="#777777">
+                  <Link href="https://faucet.dimensions.network/" color="#777777">
                     this
                   </Link>{' '}
                   or{' '}
-                  <Link to="https://faucet.metamask.io/" color="#777777">
+                  <Link href="https://faucet.metamask.io/" color="#777777">
                     this faucet
                   </Link>
                   .
