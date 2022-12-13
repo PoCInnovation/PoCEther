@@ -34,9 +34,9 @@ const checkWeb3 = async (web3) => {
     if (window.ethereum)
       await window.ethereum.request({
         method: 'wallet_switchEthereumChain',
-        params: [{ chainId: parseInt(aimedChain, 10).toString(16) }],
+        params: [{ chainId: `0x${parseInt(aimedChain, 10).toString(16)}` }],
       });
-    else window.alert('CHANGE TO RINKEBY');
+    else window.alert('CHANGE TO MUMBAI');
 };
 
 const getInstance = async (web3, contractJSON) => {
