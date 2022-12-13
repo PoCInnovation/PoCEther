@@ -9,6 +9,7 @@
   "scripts": {
     "start": "truffle migrate --network rinkeby",
     "dev": "truffle test && truffle migrate",
+    "mumbai": "truffle migrate --network mumbai",
     "client": "cd client && yarn start"
   },
   "repository": {
@@ -23,7 +24,7 @@
   "homepage": "https://github.com/lolboysg/BlockchainChallengesPlatform#readme",
   "dependencies": {
     "@openzeppelin/contracts": "^3.3.0",
-    "dotenv": "^10.0.0",
-    "truffle-privatekey-provider": "^1.5.0"
+    "@truffle/hdwallet-provider": "^2.1.3",
+    "dotenv": "^10.0.0"
   }
 }
