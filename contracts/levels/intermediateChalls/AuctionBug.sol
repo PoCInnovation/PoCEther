@@ -7,7 +7,7 @@ contract AuctionBug {
 	mapping(address => uint) public price;
 	address payable public owner;
 
-	constructor() public {
+	constructor() public payable {
 		owner = msg.sender;
 		price[owner] = 100 * (1 ether);
 	}
