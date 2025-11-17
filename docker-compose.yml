@@ -1,0 +1,81 @@
+services:
+  # Anvil - Foundry's local Ethereum node
+  anvil:
+    image: ghcr.io/foundry-rs/foundry:latest
+    container_name: pocether-anvil
+    ports:
+      - "8545:8545"
+    environment:
+      - ANVIL_IP_ADDR=0.0.0.0
+    command: >
+      anvil
+      --host 0.0.0.0
+      --port 8545
+      --chain-id 31337
+      --accounts 10
+      --balance 10000
+      --gas-limit 30000000
+      --code-size-limit 50000
+      --block-time 1
+    networks:
+      pocether-network:
+        aliases:
+          - anvil
+    healthcheck:
+      test: ["CMD", "sh", "-c", "cast client --rpc-url http://localhost:8545 2>/dev/null || exit 1"]
+      interval: 3s
+      timeout: 5s
+      retries: 20
+      start_period: 2s
+
+  # Contract Deployer - Deploys smart contracts to Anvil
+  deployer:
+    build:
+      context: .
+      dockerfile: Dockerfile.deployer
+    container_name: pocether-deployer
+    depends_on:
+      anvil:
+        condition: service_healthy
+    environment:
+      - ANVIL_HOST=anvil
+      - ANVIL_PORT=8545
+      - NETWORK=anvil
+    volumes:
+      - ./build/contracts:/app/build/contracts
+      - ./client/src/contracts:/app/client/src/contracts
+    networks:
+      - pocether-network
+    command: sh -c "sleep 10 && npx truffle migrate --network anvil"
+
+  # Frontend - React application
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: pocether-frontend
+    depends_on:
+      - deployer
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_NETWORK=anvil
+      - REACT_APP_NETWORK_ID=31337
+      - REACT_APP_CHAIN_ID=31337
+      - REACT_APP_RPC_URL=http://localhost:8545
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+      - NODE_OPTIONS=--openssl-legacy-provider
+    volumes:
+      - ./client/src:/app/src
+      - ./client/public:/app/public
+      - ./client/src/contracts:/app/src/contracts
+      - /app/node_modules
+    networks:
+      - pocether-network
+    stdin_open: true
+    tty: true
+
+networks:
+  pocether-network:
+    driver: bridge

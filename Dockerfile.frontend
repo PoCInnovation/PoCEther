@@ -1,0 +1,28 @@
+# Dockerfile for React Frontend (Development)
+FROM node:20-alpine
+
+# Install dependencies for node-gyp (needed by web3.js native modules)
+RUN apk add --no-cache python3 make g++ git
+
+# Set working directory
+WORKDIR /app
+
+# Copy client package files
+COPY client/package.json client/yarn.lock* client/package-lock.json* ./
+
+# Install dependencies
+RUN if [ -f yarn.lock ]; then yarn install; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    else npm install; fi
+
+# Copy client source code
+COPY client/ ./
+
+# Expose port 3000
+EXPOSE 3000
+
+# Set environment to development
+ENV NODE_ENV=development
+
+# Start development server
+CMD ["npm", "start"]

@@ -20,10 +20,14 @@
 
 require('dotenv').config()
 const HDWalletProvider = require("@truffle/hdwallet-provider");
-var privateKey = process.env["PRIVATE_KEY"];
-var tokenKey = process.env["ENDPOINT_KEY"];
-var ganacheHost = process.env["GANACHE_HOST"];
-var ganachePort = process.env["GANACHE_PORT"];
+
+// Environment variables
+const privateKey = process.env["PRIVATE_KEY"];
+const mnemonic = process.env["MNEMONIC"];
+const anvilHost = process.env["ANVIL_HOST"] || "127.0.0.1";
+const anvilPort = process.env["ANVIL_PORT"] || 8545;
+const sepoliaRpcUrl = process.env["SEPOLIA_RPC_URL"];
+const infuraProjectId = process.env["INFURA_PROJECT_ID"];
 
 module.exports = {
   /**
@@ -37,40 +41,48 @@ module.exports = {
    */
   contracts_build_directory: "./client/src/contracts",
   networks: {
-    // Useful for testing. The `development` name is special - truffle uses it by default
-    // if it's defined here and no other network is specified at the command line.
-    // You should run a client (like ganache-cli, geth or parity) in a separate terminal
-    // tab if you use this network and you must also set the `host`, `port` and `network_id`
-    // options below to some value.
-    //
-     development: {
-      host: ganacheHost,     // Localhost (default: none)
-      port: ganachePort,            // Standard Ethereum port (default: none)
-      network_id: "*",       // Any network (default: none)
-     },
-    // Another network with more advanced options...
-    // advanced: {
-    // port: 8777,             // Custom port
-    // network_id: 1342,       // Custom network
-    // gas: 8500000,           // Gas sent with each transaction (default: ~6700000)
-    // gasPrice: 20000000000,  // 20 gwei (in wei) (default: 100 gwei)
-    // from: <address>,        // Account to send txs from (default: accounts[0])
-    // websocket: true        // Enable EventEmitter interface for web3 (default: false)
-    // },
-    // Useful for deploying to a public network.
-    // NB: It's important to wrap the provider as a function.
-     rinkeby: {
-      provider: () => new HDWalletProvider(privateKey, tokenKey),
-      network_id: 4,
-      gas : 6700000,
-      gasPrice : 10000000000
-     },
-     mumbai: {
-      provider: new HDWalletProvider(privateKey, tokenKey),
-      network_id: 80001,
-      gas : 6700000,
-      gasPrice : 10000000000
-     },
+    // Anvil - Foundry's local Ethereum node (replaces Ganache)
+    // Run with: anvil
+    // Default chainId: 31337
+    anvil: {
+      host: anvilHost,
+      port: anvilPort,
+      network_id: "*",       // Match any network id
+      gas: 30000000,         // High gas limit for local testing
+      gasPrice: 0,           // Free gas on local network
+      from: undefined,       // Use the first account from Anvil
+    },
+
+    // Development network (for backward compatibility)
+    // Points to Anvil by default
+    development: {
+      host: anvilHost,
+      port: anvilPort,
+      network_id: "*",
+      gas: 30000000,
+      gasPrice: 0,
+    },
+
+    // Sepolia Testnet - Official Ethereum testnet (replaces deprecated Rinkeby)
+    // Get Sepolia ETH from: https://sepoliafaucet.com/
+    sepolia: {
+      provider: () => {
+        const accountKey = mnemonic || privateKey;
+        if (!accountKey) {
+          throw new Error("Please set MNEMONIC or PRIVATE_KEY in .env file");
+        }
+        if (!sepoliaRpcUrl) {
+          throw new Error("Please set SEPOLIA_RPC_URL in .env file");
+        }
+        return new HDWalletProvider(accountKey, sepoliaRpcUrl);
+      },
+      network_id: 11155111,  // Sepolia network id
+      gas: 4000000,
+      gasPrice: 10000000000, // 10 gwei
+      confirmations: 2,      // Wait 2 blocks before considering tx confirmed
+      timeoutBlocks: 200,    // Wait 200 blocks before timing out
+      skipDryRun: true       // Skip dry run before migrations
+    },
     // Useful for private networks
     // private: {
     // provider: () => new HDWalletProvider(mnemonic, `https://network.io`),

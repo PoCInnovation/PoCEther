@@ -2,31 +2,112 @@
 
 A front-end to use cyber security blockchain challenges.
 
-## Installation :wrench:
+## 🚀 Quick Start with Docker (Recommended)
 
-- Install [Nodejs](https://nodejs.org/en/download/)
-- Install [Truffle](https://trufflesuite.com/docs/truffle/getting-started/installation)
-- Setup the .env in the root of the repository
-- Setup the .env in the client directory
-- Install ganache if you wants to dev on local
+The easiest way to run PoCEther is with Docker:
 
-## Quickstart Testnet ⏩
+```bash
+# 1. Start all services (Anvil + Smart Contracts + Frontend)
+docker-compose up
 
-- Deploy the challenges factories :rocket:
-```
-yarn start
-```
+# 2. Open your browser at http://localhost:3000
 
-or if you wants to deploy on local
-
-```
-yarn run dev
+# 3. Configure MetaMask:
+#    - Network: Anvil (localhost)
+#    - RPC URL: http://localhost:8545
+#    - Chain ID: 31337
+#    - Import an Anvil account (private keys shown in Anvil logs)
 ```
 
-- Start the client :rocket:
+That's it! The platform will automatically:
+- Launch Anvil (local Ethereum node)
+- Deploy all smart contracts
+- Start the React frontend with hot reload
+
+### Stop the platform:
+```bash
+docker-compose down
 ```
-yarn client
-```
+
+---
+
+## 📋 Manual Installation (Without Docker)
+
+### Prerequisites
+- [Node.js 20+](https://nodejs.org/en/download/)
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) (for Anvil)
+- [Truffle](https://trufflesuite.com/docs/truffle/getting-started/installation)
+
+### Setup
+
+1. **Configure environment variables:**
+   ```bash
+   # Copy .env examples
+   cp .env.example .env
+   cp client/.env.example client/.env
+
+   # Edit .env files if needed (default values work for Anvil)
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   # Root dependencies
+   npm install
+
+   # Client dependencies
+   cd client && npm install && cd ..
+   ```
+
+3. **Run the platform:**
+
+   **Terminal 1 - Start Anvil:**
+   ```bash
+   anvil
+   ```
+
+   **Terminal 2 - Deploy contracts:**
+   ```bash
+   npx truffle migrate --network anvil
+   ```
+
+   **Terminal 3 - Start frontend:**
+   ```bash
+   cd client && npm start
+   ```
+
+---
+
+## 🌐 Deploying to Sepolia Testnet
+
+1. **Get Sepolia ETH:**
+   - Visit [Sepolia Faucet](https://sepoliafaucet.com/)
+
+2. **Configure .env:**
+   ```bash
+   # Add your private key or mnemonic
+   PRIVATE_KEY=your_private_key_here
+
+   # Add Sepolia RPC URL (get from Infura or Alchemy)
+   SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/YOUR_PROJECT_ID
+   ```
+
+3. **Configure client/.env:**
+   ```bash
+   # Uncomment Sepolia configuration
+   REACT_APP_NETWORK_ID=11155111
+   REACT_APP_CHAIN_ID=11155111
+   REACT_APP_NETWORK_NAME=Sepolia
+   REACT_APP_RPC_URL=https://sepolia.infura.io/v3/YOUR_PROJECT_ID
+   ```
+
+4. **Deploy:**
+   ```bash
+   npx truffle migrate --network sepolia
+   ```
+
+---
+
+## 🎮 Using the Platform
 
 You are now ready to access your blockchain security platform !!!
 

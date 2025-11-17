@@ -1,0 +1,30 @@
+# Dockerfile for Smart Contract Deployment
+FROM node:20-alpine
+
+# Install dependencies for node-gyp and Python
+RUN apk add --no-cache python3 make g++ git
+
+# Set working directory
+WORKDIR /app
+
+# Copy package files
+COPY package.json yarn.lock* package-lock.json* ./
+
+# Install dependencies
+RUN if [ -f yarn.lock ]; then yarn install --frozen-lockfile; \
+    elif [ -f package-lock.json ]; then npm ci; \
+    else npm install; fi
+
+# Copy contract files and migrations
+COPY contracts/ ./contracts/
+COPY migrations/ ./migrations/
+COPY truffle-config.js ./
+
+# Copy deployment scripts
+COPY scripts/ ./scripts/
+
+# Create directory for contract artifacts
+RUN mkdir -p /app/build/contracts
+
+# Default command (will be overridden in docker-compose)
+CMD ["npx", "truffle", "migrate", "--network", "anvil"]
