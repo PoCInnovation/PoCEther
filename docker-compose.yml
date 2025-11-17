@@ -44,9 +44,10 @@ services:
     volumes:
       - ./build/contracts:/app/build/contracts
       - ./client/src/contracts:/app/client/src/contracts
+      - ./scripts:/app/scripts
     networks:
       - pocether-network
-    command: sh -c "sleep 10 && npx truffle migrate --network anvil"
+    command: sh -c "sleep 10 && sh /app/scripts/clean-anvil-artifacts.sh && npx truffle migrate --network anvil --reset"
 
   # Frontend - React application
   frontend:

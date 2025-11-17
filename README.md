@@ -21,12 +21,23 @@ docker-compose up
 
 That's it! The platform will automatically:
 - Launch Anvil (local Ethereum node)
-- Deploy all smart contracts
+- Clean old contract artifacts from previous sessions
+- Deploy all smart contracts fresh
 - Start the React frontend with hot reload
 
 ### Stop the platform:
 ```bash
 docker-compose down
+```
+
+**Important:** Anvil is an ephemeral blockchain - all data is lost when stopped. When you restart with `docker compose up`, the platform automatically:
+- ✅ Cleans old contract artifacts
+- ✅ Redeploys all contracts with fresh addresses
+- ✅ Resets the blockchain state
+
+If you need to manually clean artifacts:
+```bash
+./clean-anvil.sh
 ```
 
 ---

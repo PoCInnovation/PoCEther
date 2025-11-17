@@ -1,3 +1,31 @@
+# Dependencies
 node_modules
+client/node_modules
+
+# Environment variables
 .env
+client/.env
+
+# Truffle build artifacts (deployment specific)
+build/contracts/*.json
 client/src/contracts/*.json
+
+# Deployment addresses
+deployed-addresses.json
+deployed-addresses.env
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
